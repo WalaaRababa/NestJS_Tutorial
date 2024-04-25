@@ -1,24 +1,14 @@
 /* eslint-disable prettier/prettier */
 
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
-
 @Entity()
 export class Payment {
-    @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn()
   id: number;
-
-  @Column({ length: 500 })
-  name: string;
-
-  @Column('text')
-  description: string;
-
-  @Column()
-  filename: string;
-
+  @Column({ nullable: true })
+  currency: string;
   @Column('int')
-  views: number;
-
-  @Column()
-  isPublished: boolean;
+  amount: number;
+  @Column({ default: true })
+  isActive: boolean;
 }
